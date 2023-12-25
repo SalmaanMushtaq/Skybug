@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.navbar {
+  padding: 10px;
+}
+.nav-item {
+  margin-right: 30px;
+}
+.nav-link {
+  position: relative;
+}
+.nav-link:hover {
+  text-transform: lowercase;
+  border: 1px solid green;
+  border-radius: 5px;
+  text-shadow: 0 0 10px white;
+  box-shadow: 0 0 6px #cff472;
+}
+
+.navbar .active:after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+}
+header {
+  position: sticky;
+  top: 0;
+}
+#about .left-content img {
+  max-width: 100%;
+  height: 80%;
+  display: block;
+  box-shadow: 30px 30px 0px 0px rgb(243 242 242);
+}
+p {
+  text-align: justify;
+  text-indent: 1em;
+}
+.custom-line {
+  position: relative;
+  height: 1px;
+  width: 10em;
+  background-color: white;
+  margin-top: 15px;
+}
+.inside-custom-line {
+  position: absolute;
+  top: -7px;
+  bottom: 0;
+  height: 5px;
+  width: 2em;
+  background-color: whitesmoke;
+  margin-top: 5px;
+}
+.card {
+  border-radius: 12px;
+  transition: transform 0.3s;
+  margin-bottom: 10px;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.form-range {
+  margin-top: 10px;
+}
+#projectCarousel {
+  width: 80%;
+  margin: 0 auto;
+}
+.carousel-item img {
+  height: 400px;
+}
+footer {
+  position: relative;
+}
+.arrow-up {
+  position: absolute;
+  display: block;
+  top: -25px;
+  bottom: 0;
+  left: 50%;
+  height: 50px;
+  width: 50px;
+  color: black;
+  background-color: whitesmoke;
+  border-radius: 50%;
+}
+.arrow-up span {
+  font-size: 37px;
+}
+.arrow-up a {
+  text-decoration: none;
+  color: black;
+}
+
+input[type="text"],
+textarea {
+  border: none;
+  border-radius: unset;
+  width: 100%;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.546);
+  transition: border-bottom-color 0.3s;
+  background-color: transparent;
+  color: white;
+}
+::placeholder {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  border-color: none;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid rgb(255, 255, 255);
+}
+footer {
+  border-top: 1px solid whitesmoke;
+}
