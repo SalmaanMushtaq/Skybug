@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+
+<body>
+    <main>
+        <section class="calculator">
+            <div class="head">
+                <div class="detail">
+                    <small>&copy; Salmaan</small>
+                    <span>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </span>
+                </div>
+                <div class="display" id="result">
+                    0
+                </div>
+            </div>
+            <div class="keyboard">
+                <button id="clear" onclick="handleCLearClick(event)">Ⅽ</button>
+                <button onclick="handleDelete(event)">x</button>
+                <button onclick="handleOperatorClick(event)">%</button>
+                <button onclick="handleOperatorClick(event)">÷</button>
+                <button onclick="handleButtonClick(event)">7</button>
+                <button onclick="handleButtonClick(event)">8</button>
+                <button onclick="handleButtonClick(event)">9</button>
+                <button onclick="handleOperatorClick(event)">*</button>
+                <button onclick="handleButtonClick(event)">4</button>
+                <button onclick="handleButtonClick(event)">5</button>
+                <button onclick="handleButtonClick(event)">6</button>
+                <button onclick="handleOperatorClick(event)">-</button>
+                <button onclick="handleButtonClick(event)">1</button>
+                <button onclick="handleButtonClick(event)">2</button>
+                <button onclick="handleButtonClick(event)">3</button>
+                <button onclick="handleOperatorClick(event)">+</button>
+                <button onclick="handleButtonClick(event)">0</button>
+                <button onclick="handleButtonClick(event)">.</button>
+                <button onclick="handleButtonClick(event)">00</button>
+                <button id="equal" onclick="equal(event)">=</button>
+            </div>
+        </section>
+    </main>
+    <script>
+        const displayResult = document.getElementById("result");
+        let previousValue = 0;
+        let currentValue = "";
+        let operator = "";
+
+        function handleCLearClick(event) {
+            displayResult.innerText = 0;
+            previousValue = 0;
+            currentValue = "";
+            operator = "";
+        }
+
+        function handleDelete(event) {
+            currentValue = currentValue.slice(0, -1);
+            displayResult.innerText = currentValue;
+        }
+
+        function handleOperatorClick(event) {
+            if (operator && currentValue !== "") {
+                calculate();
+            }
+            operator = event.target.innerText;
+            previousValue = parseFloat(currentValue);
+            currentValue = "";
+            displayResult.innerText += operator;
+        }
+
+        function handleButtonClick(event) {
+            const targetButton = event.target;
+            if (targetButton.innerText === ".") {
+                if (!currentValue.includes(".")) {
+                    currentValue += ".";
+                    displayResult.innerText += ".";
+                }
+            } else {
+                displayResult.innerText = "";
+                currentValue += targetButton.innerText;
+                displayResult.innerText = currentValue;
+            }
+        }
+
+        function equal() {
+            calculate();
+            currentValue = displayResult.innerText;
+        }
+
+        function calculate() {
+            if (currentValue !== "") {
+                switch (operator) {
+                    case "+":
+                        previousValue += parseFloat(currentValue);
+                        break;
+                    case "-":
+                        previousValue -= parseFloat(currentValue);
+                        break;
+                    case "*":
+                        previousValue *= parseFloat(currentValue);
+                        break;
+                    case "/":
+                        previousValue /= parseFloat(currentValue);
+                        break;
+                    case "%":
+                        previousValue = previousValue / currentValue * 100;
+                        break
+                    default:
+                        throw new Error("Invalid operator");
+                }
+                displayResult.innerText = previousValue;
+                currentValue = "";
+                operator = "";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
