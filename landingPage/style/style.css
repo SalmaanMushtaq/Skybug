@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Diphylleia", serif;
+  height: 100vh;
+  background-image: url(../assests/images/background.jpg);
+  background-size: cover;
+  margin: 0;
+}
+nav,
+footer {
+  background-image: url(../assests/images/polygon-abstract.jpg);
+}
+a {
+  text-decoration: none;
+}
+.heading {
+  font-family: "Cinzel", serif;
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+.left-content img {
+  max-width: 100%;
+  border-radius: 5px;
+  height: 300px;
+}
+.right-content .row {
+  justify-content: center;
+  align-items: center;
+}
+.subscribeImg {
+  width: 50%;
+  opacity: 0.7;
+}
+.left-content img {
+  opacity: 0.6;
+}
+footer {
+  margin-top: auto;
+  padding: 10px 0;
+}
+
+@media only screen and (max-width: 767px) {
+  .right-content button {
+    margin: 20px 0px;
+  }
+  .right-content .row {
+    margin-top: 20px;
+  }
+}
